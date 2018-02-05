@@ -40,7 +40,7 @@ const Item = () => {
       <Text>Price: $100</Text>
       </TextContainer>
       <Text>shipping: </Text>
-      <Link src="#">Link</Link>
+      <Link src="#">Go Ebay</Link>
     </Container>
   );
 };
