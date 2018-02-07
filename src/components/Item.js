@@ -5,8 +5,6 @@ import { ContainerStyles, TextStyles, TitleStyles } from "../shared/style.js";
 const Container = styled.div`
 ${ContainerStyles}
 width: 300px;
-
-
 `;
 
 const CardContainer = Container.extend`
@@ -16,6 +14,7 @@ margin: 15px;
 
 const TitleContainer = Container.extend`
 width:100%;
+
 `;
 
 const TextContainer = Container.extend`
@@ -28,6 +27,7 @@ const Text = styled.p`
 `;
 const Title = styled.h2`
   ${TitleStyles};
+  margin-left: 10%;
 `;
 
 const Link = styled.a`
@@ -35,20 +35,20 @@ const Link = styled.a`
     margin-bottom: 10px;
 `;
 
-const Item = () => {
+const Item = (props) => {
   return (
-    <CardContainer direction="column" justifyContent="space-between" alignItems="flex-start">
-      <TitleContainer direction="column" justifyContent="center" alignItems="center">
-        <Title size="20">item name</Title>
+    <CardContainer direction="column" justifyContent="space-between" alignItems="flex-start"  >
+      <TitleContainer direction="column">
+        <Title size="20">{props.name}</Title>
       </TitleContainer>
-      <Text>status: used</Text>
-      <Text>time remaining: 10:00hr</Text>
+      <Text>status: {props.status}</Text>
+      <Text>time remaining: {props.time}</Text>
       <TextContainer direction="row"  alignItems="flex-start">
-      <Text>Bids: 3 </Text>
-      <Text>Price: $100</Text>
+      <Text>Bids: {props.bids}</Text>
+      <Text>Price: {props.price}</Text>
       </TextContainer>
-      <Text>shipping: </Text>
-      <Link src="#">Go Ebay</Link>
+      <Text>shipping: {props.shipping}</Text>
+      <Link src={props.link}>Go Ebay</Link>
     </CardContainer>
   );
 };
