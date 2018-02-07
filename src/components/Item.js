@@ -41,13 +41,13 @@ const Item = (props) => {
       <TitleContainer direction="column">
         <Title size="20">{props.name}</Title>
       </TitleContainer>
-      <Text>status: {props.status}</Text>
-      <Text>time remaining: {props.time}</Text>
+      <Text>{props.status}</Text>
+      <Text>{props.time}</Text>
       <TextContainer direction="row"  alignItems="flex-start">
       <Text>Bids: {props.bids}</Text>
-      <Text>Price: {props.price}</Text>
+      <Text>${props.price}</Text>
       </TextContainer>
-      <Text>shipping: {props.shipping}</Text>
+      <Text>{props.shipping}</Text>
       <Link src={props.link}>Go Ebay</Link>
     </CardContainer>
   );
