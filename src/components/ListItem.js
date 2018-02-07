@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import {ContainerStyles} from '../shared/style.js'
 import Item from './Item'
 
-const Container = styled.div`${ContainerStyles}`;
+const Container = styled.div`
+${ContainerStyles}
+flex-wrap: wrap;
+`;
 
 
 
@@ -11,9 +14,15 @@ const ListItem = () =>{
     return(
         <Container
         direction="row"
-        content="flex-start"
-        align="flex-start">
+        // justifyContent="space-between"
+        alignContent="space-between"
+        // alignItems="flex-start"
+        >
 
+        <Item/>
+        <Item/>
+        <Item/>
+        <Item/>
         <Item/>
         </Container>
     );

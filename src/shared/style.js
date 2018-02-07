@@ -3,8 +3,9 @@ import styled, {css} from 'styled-components';
 export const ContainerStyles = css`
     display: flex;
     flex-direction: ${props =>props.direction};
-    justify-content: ${props =>props.content};
-    align-items: ${props =>props.align};
+    justify-content: ${props =>props.justifyContent || 'flex-start'};
+    align-items: ${props =>props.alignItems || 'flex-start'};
+    align-content: ${props =>props.alignContent || 'flex-start'};
     
 `;
 
