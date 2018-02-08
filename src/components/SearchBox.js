@@ -4,14 +4,21 @@ import styled from "styled-components";
 import { ContainerStyles } from "../shared/style.js";
 
 const Container = styled.div`
-  ${ContainerStyles} height: 50px;
+  ${ContainerStyles} height: 60px;
+  border-bottom: 1px solid rgba(17, 17, 19, 0.21);
+
 `;
 
-const FormContainer = Container.extend``;
+const FormContainer = styled.div`
+${ContainerStyles}
+  margin-top: 10px;
+  
+`;
 
 const Input = styled.input`
   width: 400px;
   height: 20px;
+  padding: 8px;
 `;
 const Button = styled.button`
   /* height: 26px; */
@@ -19,8 +26,9 @@ const Button = styled.button`
   border: none;
   color: black;
   border: 2px solid #4caf50;
-  padding: 1px 32px;
+  padding: 9px 32px;
   text-align: center;
+ 
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
