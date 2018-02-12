@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
-import SearchBox from './components/SearchBox';
-import ListItem from './components/ListItem';
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <SearchBox/>
-        <ListItem/>
-      </div>
-    );
-  }
-}
+import React from 'react';
+import store from './store'
 
-export default App;
+import Home from './modules/Home'
+import {Provider} from 'react-redux';
+
+export default () =>
+      <Provider store={store}>
+        <Home/>
+      </Provider>;
+
