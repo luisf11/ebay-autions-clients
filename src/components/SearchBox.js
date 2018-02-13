@@ -6,13 +6,10 @@ import { ContainerStyles } from "../shared/style.js";
 const Container = styled.div`
   ${ContainerStyles} height: 60px;
   border-bottom: 1px solid rgba(17, 17, 19, 0.21);
-
 `;
 
 const FormContainer = styled.div`
-${ContainerStyles}
-  margin-top: 10px;
-  
+  ${ContainerStyles} margin-top: 10px;
 `;
 
 const Input = styled.input`
@@ -28,7 +25,7 @@ const Button = styled.button`
   border: 2px solid #4caf50;
   padding: 9px 32px;
   text-align: center;
- 
+
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
@@ -42,20 +39,48 @@ const Button = styled.button`
   }
 `;
 
-const SearchBox = () => {
-  return (
-    <Container
-      direction="row"
-      justifyContent="center"
-      alignItem="center"
-      alignContent="center"
-    >
-      <FormContainer direction="row" justifyContent="center" alignItem="center" alignContent="center">
-        <Input type="text" placeholder="search product..." />
-        <Button>search</Button>
-      </FormContainer>
-    </Container>
-  );
-};
+class SearchBox extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      item: ""
+    };
+    this.updateInput = this.updateInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  updateInput(event) {
+    this.setState({ item: event.target.value });
+  }
+
+  handleSubmit() {
+    console.log(this.state.item);
+  }
+  render() {
+    return (
+      <Container
+        direction="row"
+        justifyContent="center"
+        alignItem="center"
+        alignContent="center"
+      >
+        <FormContainer
+          direction="row"
+          justifyContent="center"
+          alignItem="center"
+          alignContent="center"
+        >
+          <Input
+            type="text"
+            placeholder="search product..."
+            onChange={this.updateInput}
+          />
+          <Button onClick={this.handleSubmit}>search</Button>
+        </FormContainer>
+      </Container>
+    );
+  }
+}
 
 export default SearchBox;
