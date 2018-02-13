@@ -1,16 +1,16 @@
-
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 
 import { REQUEST_API_DATA, receiveApiData } from "./actions";
-import {fetchItems} from './api';
+import {fetchData} from './api';
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
-function* getItems(action) {
+function* getApiData(action) {
   try {
     // do api call
     // const user = yield call(Api.fetchUser, action.payload.userId);
-    const items = yield call(fetchItems);
-    yield put(receiveApiData(items));
+    const data = yield call(fetchData);
+    // console.log("items from saga",items)
+    yield put(receiveApiData(data));
   } catch (e) {
    console.log(e);
   }
@@ -23,5 +23,5 @@ function* getItems(action) {
   and only the latest one will be run.
 */
 export default function* mySaga() {
-  yield takeLatest(REQUEST_API_DATA, getItems);
+  yield takeLatest(REQUEST_API_DATA, getApiData);
 }
