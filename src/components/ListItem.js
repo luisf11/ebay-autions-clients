@@ -13,9 +13,9 @@ const Container = styled.div`
 `;
 
 class ListItem extends Component {
-  componentDidMount() {
-    this.props.requestApiData();
-  }
+  // componentDidMount() {
+  //   this.props.requestApiData();
+  // }
 
   items = (item,i) =>
   <Item

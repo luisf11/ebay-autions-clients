@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import { ContainerStyles } from "../shared/style.js";
+import { bindActionCreators } from "redux"
+import {connect} from 'react-redux';
+
+import {requestApiData} from '../actions';
 
 const Container = styled.div`
   ${ContainerStyles} height: 60px;
@@ -55,6 +59,7 @@ class SearchBox extends React.Component {
   }
 
   handleSubmit() {
+    this.props.requestApiData();
     console.log(this.state.item);
   }
   render() {
@@ -83,4 +88,9 @@ class SearchBox extends React.Component {
   }
 }
 
-export default SearchBox;
+const mapStateToProps = state => ({ data: state.data });
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ requestApiData }, dispatch);
+
+
+export default connect (mapStateToProps,mapDispatchToProps)(SearchBox);
